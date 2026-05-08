@@ -1,8 +1,34 @@
-# Majora's Mask: Recompiled Mod Template
+# Majora's Mask: Recompiled Mod Template for Zed
 
 This is an example mod for Majora's Mask: Recompiled that can be used as a template for creating mods. It has a basic build system, headers, sample code, and a mod config toml.
 
 Example code for using the recompui API to build ingame UI can be found in the `ui-example` branch.
+
+### Zed
+This fork was created to provide a better foundation for creating mods using Zed. It comes with a pre-configured `.clangd` file and build task.
+
+To make the most of the build task across all your mods, I recommend setting up your environment like so:
+```
+N64Recomp Dev Folder
+├─── Mod 1
+│    ├─── mod.toml
+│    └─── ...
+├─── Mod 2
+│    ├─── mod.toml
+│    └─── ...
+└─── RecompModTool
+```
+The build task will work out of the box this way as it looks for `RecompModTool` in the parent of the project's directory.
+
+You can also run the build task with a hotkey by adding this to your `keymap.json`:
+```
+{
+  "context": "Workspace",
+  "bindings": {
+    "alt-b": ["task::Spawn", { "task_name": "Build" }],
+  },
+},
+```
 
 ### Writing mods
 See [this document](https://hackmd.io/fMDiGEJ9TBSjomuZZOgzNg) for an explanation of the modding framework, including how to write function patches and perform interop between different mods.
